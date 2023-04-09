@@ -1,9 +1,8 @@
-export function FilterPeakEventBar(){
+export function PeakEventChooser(){
 
     return (
         <>
-        <div>
-            <div>
+         <div>
                 <label for="Events">Choose an Event Type </label>
 
                 <select name="Events" id="Events">
@@ -13,16 +12,47 @@ export function FilterPeakEventBar(){
                 <option value="fullpower">FullPower</option>
                 </select>
             </div>
-            <div>
+        </>
+    );
+}
+
+export function PeakEventsearch(){
+
+    return (
+        <>
+          <div>
                 <label for="lname">Search:</label>
                 <input type="text" id="lname" name="lname"></input>
                 <br/><br/>
             </div>
+        </>
+    );
+}
+
+export function FilterPeakEventBar(){
+
+    return (
+        <>
+        <div>
+            <PeakEventChooser/>
+            <PeakEventsearch/>
         </div>
     </>);
 }
 
 export function PeakEventTable(){
+
+    const products = [
+        { number: 'Cabbage1', link: 'Garlic1', title: 'Apple1', description: 'Test Description', id: 1 },
+        { number: 'Cabbage2', link: 'Garlic2', title: 'Apple2', description: 'Test Description2', id: 2 },
+        { number: 'Cabbage3', link: 'Garlic3', title: 'Apple3', description: 'Test Description3', id: 3 },
+        { number: 'Cabbage4', link: 'Garlic4', title: 'Apple4', description: 'Test Description4', id: 4 },
+      ];
+
+      const listEvents = products.map(product =>
+        <tr key={product.id}><td>{product.number}</td><td>{product.link}</td><td>{product.title}</td><td>{product.description}</td></tr>
+      );
+
     return (<>
         <h1>Event Table</h1>
         <table>
@@ -33,24 +63,7 @@ export function PeakEventTable(){
                 <th scope="col">Title</th>
                 <th scope="col">Description</th>
             </thead>
-            <tr>
-                <td>1</td>
-                <td>a link</td>
-                <td>a Title is here</td>
-                <td>This is a description</td>
-            </tr>
-            <tr>
-                <td>2</td>
-                <td>a link</td>
-                <td>a Title is here</td>
-                <td>This is a description</td>
-            </tr>
-            <tr>
-                <td>3</td>
-                <td>a link</td>
-                <td>a Title is here</td>
-                <td>This is a description</td>
-            </tr>
+           {listEvents}
         </table>
     </>);
 }
