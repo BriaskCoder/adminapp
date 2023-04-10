@@ -3,7 +3,7 @@ export function PeakEventChooser(){
     return (
         <>
          <div>
-                <label for="Events">Choose an Event Type </label>
+                <label htmlFor="Events">Choose an Event Type </label>
 
                 <select name="Events" id="Events">
                 <option value="emergency">Emergency</option>
@@ -21,7 +21,7 @@ export function PeakEventsearch(){
     return (
         <>
           <div>
-                <label for="lname">Search:</label>
+                <label htmlFor="lname">Search:</label>
                 <input type="text" id="lname" name="lname"></input>
                 <br/><br/>
             </div>
@@ -54,22 +54,30 @@ export function PeakEventTable(){
       );
 
     return (<>
-        <h1>Event Table</h1>
+        <h1>Event1 Table</h1>
         <table>
-        <caption>Peak Event Table</caption>
-            <thead>
-                <th scope="col">Number</th>
-                <th scope="col">Link</th>
-                <th scope="col">Title</th>
-                <th scope="col">Description</th>
-            </thead>
-           {listEvents}
+            <PeakEventTableHeader/>
+            <tbody>
+                {listEvents}
+            </tbody>
         </table>
     </>);
 }
 
 export function PeakEventTableHeader(){
-    return (<h2>Event Table Header</h2>);
+    return (
+    <>
+        <caption>Peak Event Table</caption>
+        <thead>
+            <tr>
+                <th scope="col">Number</th>
+                <th scope="col">Link</th>
+                <th scope="col">Title</th>
+                <th scope="col">Description</th>
+            </tr>
+        </thead>
+    </>
+    );
 }
 
 export function PeakEventTableRow(){
